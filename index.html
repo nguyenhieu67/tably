@@ -5,10 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tably</title>
         <link rel="stylesheet" href="./src/tably.js" />
+        <style>
+            .tably--active a {
+                color: red;
+                font-weight: 600;
+            }
+        </style>
     </head>
     <body>
+        <!-- Container -->
         <ul id="tabs">
-            <li class="tably--active">
+            <!-- Tabs -->
+            <li class="">
                 <a href="#tab1">Tab 1</a>
             </li>
             <li>
@@ -19,18 +27,19 @@
             </li>
         </ul>
 
+        <!-- Panels -->
         <div id="tab1">Tab1 content</div>
         <div id="tab2">Tab2 content</div>
         <div id="tab3">Tab3 content</div>
 
         <script src="./src/tably.js"></script>
-        <script>
+        <!-- <script>
             const tabs = new Tably("#tabs", {
                 // ...
             });
 
-            // tabs.toggle("#tab3");
+            // tabs.switch("#tab3");
             // tabs.destroy()
-        </script>
+        </script> -->
     </body>
 </html>
