@@ -32,8 +32,8 @@
         <div id="tab2">Tab2 content</div>
         <div id="tab3">Tab3 content</div>
 
-        <ul id="tabs2">
-            <!-- Tabs -->
+        <!-- <ul id="tabs2">
+            Tabs
             <li class="">
                 <a href="#tabA">Tab A</a>
             </li>
@@ -45,24 +45,23 @@
             </li>
         </ul>
 
-        <!-- Panels -->
+        Panels
         <div id="tabA">TabA content</div>
         <div id="tabB">TabB content</div>
-        <div id="tabC">TabC content</div>
+        <div id="tabC">TabC content</div> -->
 
         <script src="./src/tably.js"></script>
         <script>
             const tabs1 = new Tably("#tabs1", {
-                // remember: true,
+                remember: true,
             });
-            const tab1 = document.querySelector("a[href='#tab1']");
             // tabs1.switch("#tab3");
-            tabs1.switch(tab1);
+            // tabs1.switch(tab1);
             // tabs1.destroy();
 
-            const tabs2 = new Tably("#tabs2", {
-                // remember: true,
-            });
+            // const tabs2 = new Tably("#tabs2", {
+            //     remember: true,
+            // });
 
             // tabs2.switch("#tabB");
 
