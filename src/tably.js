@@ -58,7 +58,7 @@ Tably.prototype._init = function () {
         this.tabs[0];
 
     this.currentTab = tab;
-    this._activateTab(tab, false);
+    this._activateTab(tab, false, false);
 
     this.tabs.forEach((tab) => {
         tab.onclick = (event) => {
@@ -71,12 +71,16 @@ Tably.prototype._init = function () {
 
 Tably.prototype._tryActivateTab = function (selector) {
     if (this.currentTab !== selector) {
-        this._activateTab(selector);
         this.currentTab = selector;
+        this._activateTab(selector);
     }
 };
 
-Tably.prototype._activateTab = function (tab, triggerOnChange = true) {
+Tably.prototype._activateTab = function (
+    tab,
+    triggerOnChange = true,
+    update = this.opt.remember
+) {
     this.tabs.forEach((tab) => {
         tab.closest("li").classList.remove(this.opt.activeClassName);
     });
@@ -88,7 +92,7 @@ Tably.prototype._activateTab = function (tab, triggerOnChange = true) {
     const panelActive = document.querySelector(tab.getAttribute("href"));
     panelActive.hidden = false;
 
-    if (this.opt.remember) {
+    if (update) {
         const params = new URLSearchParams(location.search);
         params.set(this.paramsKey, this._regular(tab.getAttribute("href")));
         history.replaceState(null, null, `?${params}`);
